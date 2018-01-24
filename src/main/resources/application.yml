@@ -5,6 +5,7 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/movies?useSSL=false
     username: root
+    password: password-1
 
   mvc.view:
     prefix: /WEB-INF/
