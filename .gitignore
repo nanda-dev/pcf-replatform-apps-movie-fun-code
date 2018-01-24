@@ -3,3 +3,5 @@ target
 classes
 build
 .idea
+.DS_Store
+
