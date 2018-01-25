@@ -111,6 +111,7 @@ public class MoviesBean {
         return q.getResultList();
     }
 
+    @Transactional
     public void clean() {
         entityManager.createQuery("delete from Movie").executeUpdate();
     }

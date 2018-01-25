@@ -8,6 +8,7 @@ import org.superbiz.moviefun.albums.AlbumsBean;
 import org.superbiz.moviefun.movies.Movie;
 import org.superbiz.moviefun.movies.MovieFixtures;
 import org.superbiz.moviefun.movies.MoviesBean;
+import org.superbiz.moviefun.storage.BlobStore;
 
 import java.util.Map;
 
@@ -18,12 +19,16 @@ public class HomeController {
     private final AlbumsBean albumsBean;
     private final MovieFixtures movieFixtures;
     private final AlbumFixtures albumFixtures;
+    private final BlobStore s3Store;
 
-    public HomeController(MoviesBean moviesBean, AlbumsBean albumsBean, MovieFixtures movieFixtures, AlbumFixtures albumFixtures) {
+    public HomeController(MoviesBean moviesBean, AlbumsBean albumsBean,
+                          MovieFixtures movieFixtures, AlbumFixtures albumFixtures,
+                          BlobStore s3Store) {
         this.moviesBean = moviesBean;
         this.albumsBean = albumsBean;
         this.movieFixtures = movieFixtures;
         this.albumFixtures = albumFixtures;
+        this.s3Store = s3Store;
     }
 
     @GetMapping("/")
@@ -45,5 +50,13 @@ public class HomeController {
         model.put("albums", albumsBean.getAlbums());
 
         return "setup";
+    }
+
+    @GetMapping("/del")
+    public String delete() {
+        moviesBean.clean();
+        albumsBean.clean();
+        s3Store.clean();
+        return "index";
     }
 }

@@ -5,7 +5,13 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/movies?useSSL=false
     username: root
+    password: password-1
 
   mvc.view:
     prefix: /WEB-INF/
     suffix: .jsp
+s3:
+  endpointUrl: http://127.0.0.1:9000
+  accessKey: V06PNYCRK6BYW2EFRBVG
+  secretKey: x1RFtydVP9W9PnP3mc/oWUT8ytvc+8xr/6uJdtle
+  bucketName: moviefun
