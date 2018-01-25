@@ -6,6 +6,7 @@ spring:
   datasource:
     url: jdbc:mysql://localhost:3306/movies?useSSL=false
     username: root
+    password: password-1
 
   mvc.view:
     prefix: /WEB-INF/
@@ -16,7 +17,7 @@ logging.level:
   org.superbiz.moviefun: DEBUG
 
 s3:
-  endpointUrl: <aws endpoint>
-  accessKey: <access key id>
-  secretKey: <secret access key>
-  bucketName: <name of the bucket>
+  endpointUrl: http://127.0.0.1:9000
+  accessKey: V06PNYCRK6BYW2EFRBVG
+  secretKey: x1RFtydVP9W9PnP3mc/oWUT8ytvc+8xr/6uJdtle
+  bucketName: moviefun
